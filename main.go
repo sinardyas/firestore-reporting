@@ -20,6 +20,8 @@ func main() {
 
 	exclEng := excel.NewExcel()
 
+	defer exclEng.Close()
+
 	campRepo := campaign.NewCampaignRepo(fsEng, exclEng)
 
 	winners, err := campRepo.GetAllWinners(campName)
@@ -29,7 +31,7 @@ func main() {
 
 	w, err := campRepo.GetWinnerSubmissions(campName, winners)
 	if err != nil {
-		log.Panicln("Error getting the winners addresses")
+		log.Panicln("Error getting the winners submissions")
 	}
 
 	campRepo.ExportExcel(campName, w)
