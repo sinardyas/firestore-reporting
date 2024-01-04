@@ -27,8 +27,3 @@ type WinnerBid struct {
 	TrxDetail    TrxDetail `firestore:"transactionDetails,omitempty"`
 	Submission   *WinnerSubmission
 }
-
-// type CampaignWinner struct {
-// 	WinnerBid
-// 	WinnerSubmission
-// }
